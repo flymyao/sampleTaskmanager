@@ -7,11 +7,15 @@
 				},
 				events:{
 					"click; [name='loginForm'] .btn":function(event){
-						  var UserDao = brite.dao("User");
-						  UserDao.login($("[name='username']",this.$el).val(),$("[name='password']",this.$el).val()).pipe(function(status){
+						 var remoteDao = brite.dao("User");
+						 remoteDao.login($("[name='loginForm'] [name='username']",this.$el).val(),$("[name='loginForm'] [name='password']",this.$el).val()).pipe(function(status){
 							 if(status.success)
 								{
-								brite.display("MainView",$("body").find("#mainview"));
+								 var projectDao = brite.dao("Project");
+								 projectDao.daoList().pipe(function(projectList){
+									 brite.display("ProjectView",$("body").find("#mainview"),{projectList:projectList});
+								 });
+								
 								}
 							 else{
 								 alert("error name or password.");
@@ -21,8 +25,8 @@
 					 
 					},
 					"click; [name='registerForm'] .btn":function(event){
-						 var UserDao = brite.dao("User");
-						  UserDao.addUser($("[name='username']",this.$el).val(),$("[name='password']",this.$el).val()).pipe(function(status){
+						 var remoteDao = brite.dao("User");
+						 remoteDao.register($("[name='registerForm'] [name='username']",this.$el).val(),$("[name='registerForm'] [name='password']",this.$el).val()).pipe(function(status){
 							 if(status.success)
 								{
 								 brite.display("MainView",$("body").find("#mainview"));								 

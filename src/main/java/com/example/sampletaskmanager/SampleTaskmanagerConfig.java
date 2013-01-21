@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.util.Set;
 
 import com.britesnow.snow.web.binding.EntityClasses;
+import com.example.sampletaskmanager.dao.DaoRegistry;
 import com.example.sampletaskmanager.entity.User;
 import com.google.inject.AbstractModule;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.metapossum.utils.scanner.reflect.ClassesInPackageScanner;
@@ -34,4 +37,14 @@ public class SampleTaskmanagerConfig extends AbstractModule{
 	        }
 
 	    } 
+	  	
+	  	@Provides
+	    @Singleton
+	    @Inject
+	    public DaoRegistry provideDaoRegistry(Injector injector, @EntityClasses Class[] entityClasses) {
+	  		 DaoRegistry daoRegistry = new DaoRegistry();
+	         daoRegistry.init(injector, entityClasses);
+	         return daoRegistry;
+	    } 
+	  	
 }

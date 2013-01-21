@@ -1,11 +1,10 @@
-package com.example.sampletaskmanager;
+package com.example.sampletaskmanager.web;
 
 import com.britesnow.snow.web.RequestContext;
 import com.britesnow.snow.web.handler.annotation.WebActionHandler;
 import com.britesnow.snow.web.param.annotation.WebParam;
 import com.example.sampletaskmanager.dao.UserDao;
 import com.example.sampletaskmanager.entity.User;
-import com.example.sampletaskmanager.web.WebStatus;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
@@ -14,16 +13,15 @@ public class UserWebHandler {
 
 	@Inject
 	private UserDao userDao;
-	
-	@WebActionHandler(name="addUser")
+	@WebActionHandler(name="register")
 	public WebStatus addUser(@WebParam("username")String userName,@WebParam("password")String  password, RequestContext rc){
 		if(userDao.getUser(userName)!=null)
 			return WebStatus.getWebStatus(false);
+		
 		User user = new User();
 		user.setUserName(userName);
 		user.setPassword(password);
-		userDao.addUser(user);
-		System.out.println("size==="+userDao.getUsers().size());
+		userDao.save(user);
 		return WebStatus.getWebStatus(true);
 	}
 	
