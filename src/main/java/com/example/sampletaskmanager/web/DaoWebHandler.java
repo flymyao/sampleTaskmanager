@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.britesnow.snow.util.JsonUtil;
 import com.britesnow.snow.util.ObjectUtil;
-import com.britesnow.snow.web.handler.annotation.WebActionHandler;
 import com.britesnow.snow.web.param.annotation.WebParam;
 import com.britesnow.snow.web.rest.annotation.WebPost;
 import com.example.sampletaskmanager.dao.DaoRegistry;
