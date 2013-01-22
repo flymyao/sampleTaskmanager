@@ -13,11 +13,11 @@ public class UserWebHandler {
 
 	@Inject
 	private UserDao userDao;
+	
 	@WebActionHandler(name="register")
 	public WebStatus addUser(@WebParam("username")String userName,@WebParam("password")String  password, RequestContext rc){
 		if(userDao.getUser(userName)!=null)
 			return WebStatus.getWebStatus(false);
-		
 		User user = new User();
 		user.setUserName(userName);
 		user.setPassword(password);

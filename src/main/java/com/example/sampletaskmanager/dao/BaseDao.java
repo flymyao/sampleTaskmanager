@@ -5,11 +5,9 @@ import java.util.List;
 
 import com.britesnow.snow.web.db.hibernate.HibernateDaoHelper;
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import com.googlecode.gentyref.GenericTypeReflector;
 
 /**
- * 
  * @author Yao general daoGet, daoDelete,daoList,daoSave methods
  */
 public class BaseDao<T> implements IDao<T> {
@@ -47,12 +45,12 @@ public class BaseDao<T> implements IDao<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> list() {
-		return daohelper.getSession().createQuery("from "+entityClass.getSimpleName()).list();
+		return (List<T>) daohelper.find(0, 100, "from "+entityClass.getSimpleName());
+		//return daohelper.getSession().createQuery("from "+entityClass.getSimpleName()).list();
 	}
 
 	@Override
 	public Class<T> getEntityClass() {
 		return entityClass;
 	}
-
 }

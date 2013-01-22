@@ -1,12 +1,10 @@
 package com.example.sampletaskmanager.dao;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 import com.google.inject.Injector;
-import com.google.inject.Singleton;
 import com.metapossum.utils.scanner.reflect.ClassesInPackageScanner;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })

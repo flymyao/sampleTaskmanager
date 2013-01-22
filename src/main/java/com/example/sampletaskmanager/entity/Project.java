@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Project extends BaseEntity{
 
+	private Long id;
 	private String name;
 	private List<Ticket> tickets = new ArrayList<Ticket>(0);
 

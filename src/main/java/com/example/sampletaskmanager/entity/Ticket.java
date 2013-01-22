@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Ticket extends BaseEntity{
-
+	private Long id;
 	private String name;
 	private Project project;
 
@@ -23,7 +23,6 @@ public class Ticket extends BaseEntity{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
 	public String getName() {
 		return name;
 	}
