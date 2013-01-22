@@ -7,6 +7,7 @@ import com.britesnow.snow.util.JsonUtil;
 import com.britesnow.snow.util.ObjectUtil;
 import com.britesnow.snow.web.handler.annotation.WebActionHandler;
 import com.britesnow.snow.web.param.annotation.WebParam;
+import com.britesnow.snow.web.rest.annotation.WebPost;
 import com.example.sampletaskmanager.dao.DaoRegistry;
 import com.example.sampletaskmanager.dao.IDao;
 import com.google.inject.Inject;
@@ -19,19 +20,19 @@ public class DaoWebHandler {
 	@Inject
 	public DaoRegistry daoRegistry;
 	
-	@WebActionHandler(name="daoGet")
+	@WebPost("/daoGet")
 	public Object daoGet(@WebParam("entityType") String entityType,@WebParam("id")Long id){
 		return daoRegistry.getDao(entityType).get(id);
 	}
 	
-	@WebActionHandler(name="daoDelete")
+	@WebPost("/daoDelete")
 	public WebStatus daoDelete(@WebParam("entityType") String entityType,@WebParam("id")Long id){
 		IDao dao = daoRegistry.getDao(entityType);
 		dao.delete(dao.get(id));
 		return WebStatus.getWebStatus(true);
 	}
 	
-	@WebActionHandler(name="daoSave")
+	@WebPost("/daoSave")
 	public void daoSave(@WebParam("entityType") String entityType,  @WebParam("jsonObj") String jsonObj){
 		IDao dao = daoRegistry.getDao(entityType);
 		Map jsonMap = JsonUtil.toMapAndList(jsonObj);
@@ -40,7 +41,7 @@ public class DaoWebHandler {
 		dao.save(o);
 	}
 	
-	@WebActionHandler(name="daoList")
+	@WebPost("/daoList")
 	public List<?> daoList(@WebParam("entityType") String entityType){
 		IDao dao = daoRegistry.getDao(entityType);
 		return dao.list();

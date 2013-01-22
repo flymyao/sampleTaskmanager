@@ -11,7 +11,7 @@
 		return $.ajax({
 			type : "post",
 			dataType : 'json',
-			url : contextPath + "/login.do",
+			url : contextPath + "/login",
 			data : {
 				username : username,
 				password : password
@@ -27,7 +27,7 @@
 				{
 					type : "post",
 					dataType : 'json',
-					url : contextPath + "/register.do",
+					url : contextPath + "/register",
 					data : {
 
 						jsonObj : '{username:"' + username + '",password:"'
@@ -43,7 +43,7 @@
 		return $.ajax({
 			type : "post",
 			dataType : 'json',
-			url : contextPath + "/daoSave.do",
+			url : contextPath + "/daoSave",
 			data : {
 				jsonObj : JSON.stringify(data),
 				entityType : this._entityType
@@ -57,7 +57,7 @@
 		return $.ajax({
 			type : "post",
 			dataType : 'json',
-			url : contextPath + "/daoDelete.do",
+			url : contextPath + "/daoDelete",
 			data : {
 				id : id,
 				jsonObj : JSON.stringify(data),
@@ -72,7 +72,7 @@
 		return $.ajax({
 			type : "post",
 			dataType : 'json',
-			url : contextPath + "/daoGet.do",
+			url : contextPath + "/daoGet",
 			data : {
 				id : id,
 				jsonObj : JSON.stringify(data),
@@ -87,7 +87,7 @@
 		return $.ajax({
 			type : "post",
 			dataType : 'json',
-			url : contextPath + "/daoList.do",
+			url : contextPath + "/daoList",
 			data : {
 				entityType : this._entityType
 			}

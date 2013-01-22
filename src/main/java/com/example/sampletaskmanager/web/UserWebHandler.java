@@ -3,6 +3,7 @@ package com.example.sampletaskmanager.web;
 import com.britesnow.snow.web.RequestContext;
 import com.britesnow.snow.web.handler.annotation.WebActionHandler;
 import com.britesnow.snow.web.param.annotation.WebParam;
+import com.britesnow.snow.web.rest.annotation.WebPost;
 import com.example.sampletaskmanager.dao.UserDao;
 import com.example.sampletaskmanager.entity.User;
 import com.google.inject.Inject;
@@ -14,7 +15,7 @@ public class UserWebHandler {
 	@Inject
 	private UserDao userDao;
 	
-	@WebActionHandler(name="register")
+	@WebPost("/register")
 	public WebStatus addUser(@WebParam("username")String userName,@WebParam("password")String  password, RequestContext rc){
 		if(userDao.getUser(userName)!=null)
 			return WebStatus.getWebStatus(false);
@@ -26,7 +27,7 @@ public class UserWebHandler {
 	}
 	
 	
-	@WebActionHandler(name="login")
+	@WebPost("/login")
 	public WebStatus loginIn(@WebParam("username")String userName,@WebParam("password")String  password, RequestContext rc){
 		User user = userDao.getUser(userName,password);
 		if(user!=null){
