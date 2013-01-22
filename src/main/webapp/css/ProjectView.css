@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+.projectView{
+	width:600px;
+	margin:0 auto;
+	margin-top: 200px;
+	box-shadow:10px 10px 30px black;
+	border-radius:20px;
+	background-color: white;;
+}
+
+.header{
+	text-align: center;
+}
+.projectTable td{
+	text-align: left;;
+}
