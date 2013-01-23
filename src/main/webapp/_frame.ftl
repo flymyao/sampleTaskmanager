@@ -12,8 +12,8 @@
   </head>
 
   <body>
-     <div id = "mainview" ></div>
-		<script type="text/javascript">
+     <div id="mainview"></div>
+     <script type="text/javascript">
 			brite.registerDao(new brite.RemoteDao("User"));
 			brite.registerDao(new brite.RemoteDao("Project"));
 			
@@ -21,6 +21,6 @@
 			$(document).ready(function(){
 				brite.display("LoginView",$mainview);
 			});
-		</script>
+	 </script>
   </body>
 </html>
