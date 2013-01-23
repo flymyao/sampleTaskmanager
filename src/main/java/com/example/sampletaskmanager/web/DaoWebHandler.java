@@ -6,6 +6,7 @@ import java.util.Map;
 import com.britesnow.snow.util.JsonUtil;
 import com.britesnow.snow.util.ObjectUtil;
 import com.britesnow.snow.web.param.annotation.WebParam;
+import com.britesnow.snow.web.rest.annotation.WebGet;
 import com.britesnow.snow.web.rest.annotation.WebPost;
 import com.example.sampletaskmanager.dao.DaoRegistry;
 import com.example.sampletaskmanager.dao.IDao;
@@ -19,7 +20,7 @@ public class DaoWebHandler {
 	@Inject
 	public DaoRegistry daoRegistry;
 	
-	@WebPost("/daoGet")
+	@WebGet("/daoGet")
 	public Object daoGet(@WebParam("entityType") String entityType,@WebParam("id")Long id){
 		return daoRegistry.getDao(entityType).get(id);
 	}
@@ -40,7 +41,7 @@ public class DaoWebHandler {
 		dao.save(o);
 	}
 	
-	@WebPost("/daoList")
+	@WebGet("/daoList")
 	public List<?> daoList(@WebParam("entityType") String entityType){
 		IDao dao = daoRegistry.getDao(entityType);
 		return dao.list();

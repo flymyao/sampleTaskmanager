@@ -2,6 +2,7 @@ package com.example.sampletaskmanager.web;
 
 import com.britesnow.snow.web.RequestContext;
 import com.britesnow.snow.web.param.annotation.WebParam;
+import com.britesnow.snow.web.rest.annotation.WebGet;
 import com.britesnow.snow.web.rest.annotation.WebPost;
 import com.example.sampletaskmanager.dao.UserDao;
 import com.example.sampletaskmanager.entity.User;
@@ -26,7 +27,7 @@ public class UserWebHandler {
 	}
 	
 	
-	@WebPost("/login")
+	@WebGet("/login")
 	public WebStatus loginIn(@WebParam("username")String userName,@WebParam("password")String  password, RequestContext rc){
 		User user = userDao.getUser(userName,password);
 		if(user!=null){
