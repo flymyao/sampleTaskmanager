@@ -60,7 +60,6 @@
 			url : contextPath + "/daoDelete",
 			data : {
 				id : id,
-				jsonObj : JSON.stringify(data),
 				entityType : this._entityType
 			}
 		}).pipe(function(v) {
@@ -75,7 +74,6 @@
 			url : contextPath + "/daoGet",
 			data : {
 				id : id,
-				jsonObj : JSON.stringify(data),
 				entityType : this._entityType
 			}
 		}).pipe(function(v) {

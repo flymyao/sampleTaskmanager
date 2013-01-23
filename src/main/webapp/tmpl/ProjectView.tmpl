@@ -3,12 +3,23 @@
 		<h3 class="header">Project</h3>
 		<table class="table table-bordered projectTable">
 			{{#each projectList}}
-			<tr>
+			<tr data-project-id="{{id}}">
 				<td>
-				{{name}}
+					<div class="projectName">{{name}}</div>
+					<div class="deleteBtns">
+						<button class="close addTicketBtn" type="button">+</button>
+						<button class="close deleteBtn" type="button">&times;</button>
+					</div>
+					<div class="tickets"></div>
 				</td>
 			</tr>
 			{{/each}}
+			<tr>
+				<td>
+					<input type="text" name="projectName" class="addProject" placeholder="Enter a Project Name"/>
+					<button class="btn addBtn" type="button">Add Project</button>
+			   </td>
+			</tr>
 		</table>
 	</div>
 </script>  

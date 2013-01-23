@@ -14,3 +14,30 @@
 .projectTable td{
 	text-align: left;;
 }
+
+.ticketBtn{
+	float:right;
+}
+
+.projectName{
+	float:left;
+	width:80%;
+	color:#74B6EB;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.deleteBtns{
+	float:right;
+}
+
+.addTicketBtn{
+	float:left;
+	margin-right:10px;
+}
+
+.addProject{
+	width:75%;
+	margin-top:10px;
+	margin-right:20px;
+}

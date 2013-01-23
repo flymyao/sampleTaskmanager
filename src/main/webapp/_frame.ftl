@@ -6,21 +6,22 @@
     <link rel="stylesheet" type="text/css" href="${_r.contextPath}/bootstrap/css/bootstrap.css">
     [@webBundle path="/js/" type="js" /]
 	[@webBundle path="/css/" type="css" /]
-	 <script>
-     var contextPath = "${_r.contextPath}";
-     </script>
+	<script>
+    	var contextPath = "${_r.contextPath}";
+    </script>
   </head>
 
   <body>
      <div id="mainview"></div>
      <script type="text/javascript">
-			brite.registerDao(new brite.RemoteDao("User"));
-			brite.registerDao(new brite.RemoteDao("Project"));
-			
-			var $mainview = $("body").find("#mainview");
-			$(document).ready(function(){
-				brite.display("LoginView",$mainview);
-			});
+		 brite.registerDao(new brite.RemoteDao("User"));
+		 brite.registerDao(new brite.RemoteDao("Project"));
+		 brite.registerDao(new brite.RemoteDao("Ticket"));
+		
+		 var $mainview = $("body").find("#mainview");
+		 $(document).ready(function(){
+		 brite.display("LoginView",$mainview);
+	 	 });
 	 </script>
   </body>
 </html>
