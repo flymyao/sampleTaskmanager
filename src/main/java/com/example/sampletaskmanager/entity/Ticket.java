@@ -14,6 +14,7 @@ public class Ticket extends BaseEntity{
 	private Long id;
 	private String name;
 	private Project project;
+	
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -29,7 +30,7 @@ public class Ticket extends BaseEntity{
 	public void setName(String name) {
 		this.name = name;
 	}
-	@ManyToOne(cascade=CascadeType.REMOVE,fetch=FetchType.LAZY,targetEntity=Project.class)
+	@ManyToOne(cascade=CascadeType.REMOVE,fetch=FetchType.EAGER,targetEntity=Project.class)
 	@JoinColumn(name="projectId")
 	public Project getProject() {
 		return project;
@@ -37,7 +38,4 @@ public class Ticket extends BaseEntity{
 	public void setProject(Project project) {
 		this.project = project;
 	}
-	
-		
-	
 }

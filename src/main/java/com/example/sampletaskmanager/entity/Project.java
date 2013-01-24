@@ -40,7 +40,4 @@ public class Project extends BaseEntity{
 		this.tickets = tickets;
 	}
 	
-	
-	
-	
 }

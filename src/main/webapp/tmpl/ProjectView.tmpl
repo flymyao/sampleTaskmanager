@@ -1,13 +1,14 @@
 <script id="tmpl-ProjectView" type="text/html">
 	<div class="container-fluid projectView"> 
-		<h3 class="header">Project</h3>
-		<table class="table table-bordered projectTable">
+		<h3 class="header">Projects</h3>
+		<table class="table table-striped projectTable">
 			{{#each projectList}}
-			<tr data-project-id="{{id}}">
+			<tr data-project-id="{{id}}" data-project-name="{{name}}">
 				<td>
 					<div class="projectName">{{name}}</div>
-					<div class="deleteBtns">
-						<button class="close addTicketBtn" type="button">+</button>
+					<div class="btns">
+						<span class="close icon-pencil editBtn"></span> 
+						<button class="close showTicketModal" type="button">+</button>
 						<button class="close deleteBtn" type="button">&times;</button>
 					</div>
 					<div class="tickets"></div>

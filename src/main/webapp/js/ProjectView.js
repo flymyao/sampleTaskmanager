@@ -29,14 +29,23 @@
 					 });
 			  	});
 		  },
-		  "click; .addTicketBtn":function(event){
-			 alert("add ticket,not implemented.");
-		  },
 		  "click; .projectName":function(event){
 			  var ticketDao = brite.dao("Ticket");
-			  var $TicketView = $(event.target).next().next();
-			  ticketDao.daoList().pipe(function(ticketList){
+			  var $TicketView = $(event.target).next().next();//ticketDao.getTickets($(event.target).closest("tr").attr("data-project-id"))
+			  ticketDao.daoList({"project.id":$(event.target).closest("tr").attr("data-project-id")}).pipe(function(ticketList){
 				  brite.display("TicketView",$TicketView,{ticketList:ticketList});
+			  });
+		  },
+		  "click; .showTicketModal":function(event){
+			  var projectDao = brite.dao("Project");
+			  projectDao.daoGet($(event.target).closest("tr").attr("data-project-id")).pipe(function(project){
+				  brite.display("AddTicketView",$mainview,{project:project});
+			  });
+		  },
+		  "click; .editBtn":function(event){
+			  var projectDao = brite.dao("Project");
+			  projectDao.daoGet($(event.target).closest("tr").attr("data-project-id")).pipe(function(project){
+				  brite.display("EditProjectView",$mainview,{project:project});
 			  });
 		  }
 	  }

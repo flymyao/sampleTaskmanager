@@ -33,18 +33,33 @@ public class DaoWebHandler {
 	}
 	
 	@WebPost("/daoSave")
-	public void daoSave(@WebParam("entityType") String entityType,  @WebParam("jsonObj") String jsonObj){
+	public Object daoSave(@WebParam("entityType") String entityType,  @WebParam("jsonObj") String jsonObj){
 		IDao dao = daoRegistry.getDao(entityType);
 		Map jsonMap = JsonUtil.toMapAndList(jsonObj);
 		Object o = daoRegistry.getEntityInstance(entityType);
 		ObjectUtil.populate(o, jsonMap);
-		dao.save(o);
+		return dao.save(o);
 	}
 	
 	@WebGet("/daoList")
-	public List<?> daoList(@WebParam("entityType") String entityType){
+	public List<?> daoList(@WebParam("entityType") String entityType,@WebParam("jsonParam") String jsonParam){
 		IDao dao = daoRegistry.getDao(entityType);
-		return dao.list();
+		StringBuffer bf = new StringBuffer("");
+		if(jsonParam!=null){
+			Map jsonMap = JsonUtil.toMapAndList(jsonParam);
+			for(Object key:jsonMap.keySet()){
+				bf.append(key.toString()).append("=").append(jsonMap.get(key).toString()).append(" and ");
+			}
+		}
+		return dao.list(bf.toString());
 	}
 	
+	@WebPost("/daoUpdate")
+	public Object daoUpdate(@WebParam("entityType") String entityType,  @WebParam("jsonObj") String jsonObj){
+		IDao dao = daoRegistry.getDao(entityType);
+		Map jsonMap = JsonUtil.toMapAndList(jsonObj);
+		Object o = daoRegistry.getEntityInstance(entityType);
+		ObjectUtil.populate(o, jsonMap);
+		return dao.update(o);
+	}
 }

@@ -28,8 +28,8 @@ public class BaseDao<T> implements IDao<T> {
 	}
 
 	@Override
-	public void save(T t) {
-		daohelper.save(t);
+	public T save(T t) {
+		return daohelper.save(t);
 	}
 
 	@Override
@@ -44,13 +44,17 @@ public class BaseDao<T> implements IDao<T> {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<T> list() {
-		return (List<T>) daohelper.find(0, 100, "from "+entityClass.getSimpleName());
-		//return daohelper.getSession().createQuery("from "+entityClass.getSimpleName()).list();
+	public List<T> list(String param) {
+		return (List<T>) daohelper.find(0, 100, "from "+entityClass.getSimpleName()+" where "+param+" 1= 1");
 	}
 
 	@Override
 	public Class<T> getEntityClass() {
 		return entityClass;
+	}
+
+	@Override
+	public T update(T t) {
+		return daohelper.update(t);
 	}
 }

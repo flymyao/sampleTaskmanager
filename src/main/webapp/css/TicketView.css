@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+.ticketView{
+	
+}
+
+.ticketView .list{
+	float:left;
+	width:70%;
+}
+
+.ticketView .list li{
+	width:100%;
+	color:#666DB8;
+}

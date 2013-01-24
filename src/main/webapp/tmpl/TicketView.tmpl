@@ -1,9 +1,9 @@
 <script id="tmpl-TicketView" type="text/html">
-	<div class="container-fluid"> 
+	<div class="container-fluid ticketView"> 
+		<ul class="list">
 		{{#each ticketList}}
-		<div>
-		{{name}}
-		</div>
+			<li>{{name}}{{projectId}}</li>
 		{{/each}}
+		</ul>
 	</div>
 </script>  
