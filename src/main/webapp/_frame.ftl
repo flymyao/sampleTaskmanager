@@ -14,10 +14,6 @@
   <body>
      <div id="mainview"></div>
      <script type="text/javascript">
-		 brite.registerDao(new brite.RemoteDao("User"));
-		 brite.registerDao(new brite.RemoteDao("Project"));
-		 brite.registerDao(new brite.RemoteDao("Ticket"));
-		
 		 var $mainview = $("body").find("#mainview");
 		 $(document).ready(function(){
 		 brite.display("LoginView",$mainview);
