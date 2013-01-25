@@ -23,12 +23,13 @@ public class UserWebHandler {
 		user.setUserName(userName);
 		user.setPassword(password);
 		userDao.save(user);
+		rc.getReq().getSession().setAttribute("user", user);
 		return WebStatus.getWebStatus(true);
 	}
 	
 	
-	@WebGet("/login")
-	public WebStatus loginIn(@WebParam("username")String userName,@WebParam("password")String  password, RequestContext rc){
+	@WebPost("/signIn")
+	public WebStatus signIn(@WebParam("username")String userName,@WebParam("password")String  password, RequestContext rc){
 		User user = userDao.getUser(userName,password);
 		if(user!=null){
 		rc.getReq().getSession().setAttribute("user", user);
@@ -36,5 +37,11 @@ public class UserWebHandler {
 		}
 		else
 			return WebStatus.getWebStatus(false);
+	}
+	
+	@WebGet("/signOut")
+	public WebStatus signOut(RequestContext rc){
+		rc.getReq().getSession().removeAttribute("user");
+		return WebStatus.getWebStatus(true);
 	}
 }

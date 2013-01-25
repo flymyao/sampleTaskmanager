@@ -18,16 +18,16 @@
 			  }).pipe(function(){
 				  projectDao.daoList().pipe(function(projectList){
 						 brite.display("ProjectView",$("body").find("#mainview"),{projectList:projectList});
-					 });
-			  	});
+				  });
+			  });
 		  },
 		  "click; .deleteBtn":function(event){
 			  var projectDao = brite.dao("Project");
 			  projectDao.daoDelete($(event.target).closest("tr").attr("data-project-id")).pipe(function(){
 				  projectDao.daoList().pipe(function(projectList){
 						 brite.display("ProjectView",$("body").find("#mainview"),{projectList:projectList});
-					 });
-			  	});
+				  });
+			  });
 		  },
 		  "click; .projectName":function(event){
 			  var ticketDao = brite.dao("Ticket");
@@ -48,6 +48,6 @@
 				  brite.display("EditProjectView",$mainview,{project:project});
 			  });
 		  }
-	  }
+	  	}
 	});
 })();

@@ -7,11 +7,11 @@
 		return this._entityType;
 	};
 
-	RemoteDao.prototype.login = function(username, password) {
+	RemoteDao.prototype.signIn = function(username, password) {
 		return $.ajax({
-			type : "get",
+			type : "post",
 			dataType : 'json',
-			url : contextPath + "/login",
+			url : contextPath + "/signIn",
 			data : {
 				username : username,
 				password : password
@@ -21,6 +21,16 @@
 		});
 	};
 
+	RemoteDao.prototype.signOut = function() {
+		return $.ajax({
+			type : "get",
+			dataType : 'json',
+			url : contextPath + "/signOut"
+		}).pipe(function(v) {
+			return v;
+		});
+	};
+	
 	RemoteDao.prototype.getTickets=function(projectId){
 		return $.ajax({
 			type : "get",
@@ -35,18 +45,15 @@
 	};
 	
 	RemoteDao.prototype.register = function(username, password) {
-		return $.ajax(
-				{
-					type : "post",
-					dataType : 'json',
-					url : contextPath + "/register",
-					data : {
-
-						jsonObj : '{username:"' + username + '",password:"'
-								+ password + '"}',
-						entityType : this._entityType
-					}
-				}).pipe(function(v) {
+		return $.ajax({
+			type : "post",
+			dataType : 'json',
+			url : contextPath + "/register",
+			data : {
+				username : username,
+				password : password
+			}
+		}).pipe(function(v) {
 			return v;
 		});
 	};

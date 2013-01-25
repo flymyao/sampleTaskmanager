@@ -8,9 +8,11 @@
 				events:{
 					"click; [name='loginForm'] .btn":function(event){
 						 var userDao = brite.dao("User");
-						 userDao.login($("[name='loginForm'] [name='username']",this.$el).val(),
+						 userDao.signIn($("[name='loginForm'] [name='username']",this.$el).val(),
 								 $("[name='loginForm'] [name='password']",this.$el).val()).pipe(function(status){
 							 if(status.success){
+								 var $navview  = $("body").find("#navview");
+								 brite.display("NavView",$navview);
 								 var projectDao = brite.dao("Project");
 								 projectDao.daoList().pipe(function(projectList){
 									 brite.display("ProjectView",$("body").find("#mainview"),{projectList:projectList});
@@ -31,6 +33,8 @@
 						 }
 						 userDao.register(userName,password).pipe(function(status){
 							 if(status.success){
+								 var $navview  = $("body").find("#navview");
+								 brite.display("NavView",$navview);
 								 var projectDao = brite.dao("Project");
 								 projectDao.daoList().pipe(function(projectList){
 									 brite.display("ProjectView",$("body").find("#mainview"),{projectList:projectList});

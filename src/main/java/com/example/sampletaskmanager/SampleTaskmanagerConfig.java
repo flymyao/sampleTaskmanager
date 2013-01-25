@@ -3,9 +3,11 @@ package com.example.sampletaskmanager;
 import java.io.IOException;
 import java.util.Set;
 
+import com.britesnow.snow.web.auth.AuthRequest;
 import com.britesnow.snow.web.binding.EntityClasses;
 import com.example.sampletaskmanager.dao.DaoRegistry;
 import com.example.sampletaskmanager.entity.User;
+import com.example.sampletaskmanager.web.AppAuthRequest;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -18,6 +20,7 @@ public class SampleTaskmanagerConfig extends AbstractModule{
 
 	@Override
 	protected void configure() {
+		bind(AuthRequest.class).to(AppAuthRequest.class);
 	}
 
 	@Provides
