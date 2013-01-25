@@ -13,8 +13,16 @@
 
   <body>
   	 <div id="navview"></div>
-  	 <div id="mainview"></div>
-   
+     <div class="container">
+  	   <div class="row-fluid">
+         <div class="span3">
+            <div id="projectnav"></div>
+         </div>
+         <div class="span9">
+      		  <div id="mainview"></div>
+         </div>
+       </div>
+     </div>
   	 [#if _r.user??]
   	 <script type="text/javascript">
 			 var $mainview = $("body").find("#mainview");
@@ -23,7 +31,7 @@
 		 	 $(document).ready(function(){
 		 	   brite.display("NavView",$navview);
 				 projectDao.daoList().pipe(function(projectList){
-					 brite.display("ProjectView",$("body").find("#mainview"),{projectList:projectList});
+					 brite.display("ProjectView",$("body").find("#projectnav"),{projectList:projectList});
 				 });
 			 });
   	 </script>

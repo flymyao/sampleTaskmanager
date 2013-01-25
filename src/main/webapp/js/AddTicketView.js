@@ -13,17 +13,15 @@
 				var modal = this;
 				var ticketDao = brite.dao("Ticket");
 				var projectId =$(event.target).parent().attr("data-project-id");
-				  ticketDao.daoSave({
-					  name:$(event.target).prev().val(),
-					  "project.id":projectId
-				  }).pipe(function(){
-					  var ticketDao = brite.dao("Ticket");
-					  var $TicketView = $("[data-project-id='"+projectId+"'] .tickets");
-					  ticketDao.getTickets(projectId).pipe(function(ticketList){
-						  brite.display("TicketView",$TicketView,{ticketList:ticketList});
-						  modal.$el.remove();
-					  });
-				    });
+				ticketDao.daoSave({
+				  name:$(event.target).prev().prev().val(),
+				  content:$(event.target).prev().val(),
+				  projectId:projectId
+			    }).pipe(function(){
+				  ticketDao.daoList({"projectId":$(event.target).closest("tr").attr("data-project-id")}).pipe(function(ticketList){
+					  brite.display("TicketView",$mainview,{ticketList:ticketList});
+				  });
+			    });
 			}
 		}
 	})

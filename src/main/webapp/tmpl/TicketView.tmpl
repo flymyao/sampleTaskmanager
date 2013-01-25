@@ -1,9 +1,18 @@
 <script id="tmpl-TicketView" type="text/html">
-	<div class="container-fluid ticketView"> 
-		<ul class="list">
+	<div class="container-fluid ticketView">
+	  <table class="table ticketTable"> 
 		{{#each ticketList}}
-			<li>{{name}}{{projectId}}</li>
+			<tr data-ticket-id={{id}} data-project-id={{projectId}}>
+				<td>
+					<div class="ticketName">{{name}}</div>
+					<div class="ticketContent">{{content}}</div>
+					<div class="btns">
+						<button class="close deleteTicketBtn" type="button">&times;</button>
+					  <span class="close icon-pencil editTicketBtn"></span> 
+					</div>
+			  </td>
+			</tr>
 		{{/each}}
-		</ul>
+		</table>
 	</div>
 </script>  

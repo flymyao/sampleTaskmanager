@@ -1,11 +1,12 @@
 @CHARSET "UTF-8";
 .projectView{
-	width:600px;
+	width:250px;
+	position:absolute;
+	height:80%;
 	margin:0 auto;
-	margin-top: 200px;
-	box-shadow:10px 10px 30px black;
-	border-radius:20px;
-	background-color: white;;
+	/* box-shadow:10px 10px 30px black;
+	border-radius:20px; */
+	background-color: white;
 }
 
 .header{
@@ -21,7 +22,7 @@
 
 .projectName{
 	float:left;
-	width:80%;
+	width:70%;
 	color:#74B6EB;
 	font-size: 18px;
 	cursor: pointer;
@@ -42,9 +43,9 @@
 }
 
 .addProject{
-	width:75%;
+	width:55%;
 	margin-top:10px;
-	margin-right:20px;
+	margin-right:0px;
 }
 
 .addTicketModal{

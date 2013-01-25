@@ -17,7 +17,7 @@
 				  name:projectName
 			  }).pipe(function(){
 				  projectDao.daoList().pipe(function(projectList){
-						 brite.display("ProjectView",$("body").find("#mainview"),{projectList:projectList});
+						 brite.display("ProjectView",$("body").find("#projectnav"),{projectList:projectList});
 				  });
 			  });
 		  },
@@ -25,15 +25,14 @@
 			  var projectDao = brite.dao("Project");
 			  projectDao.daoDelete($(event.target).closest("tr").attr("data-project-id")).pipe(function(){
 				  projectDao.daoList().pipe(function(projectList){
-						 brite.display("ProjectView",$("body").find("#mainview"),{projectList:projectList});
+						 brite.display("ProjectView",$("body").find("#projectnav"),{projectList:projectList});
 				  });
 			  });
 		  },
 		  "click; .projectName":function(event){
 			  var ticketDao = brite.dao("Ticket");
-			  var $TicketView = $(event.target).next().next();//ticketDao.getTickets($(event.target).closest("tr").attr("data-project-id"))
-			  ticketDao.daoList({"project.id":$(event.target).closest("tr").attr("data-project-id")}).pipe(function(ticketList){
-				  brite.display("TicketView",$TicketView,{ticketList:ticketList});
+			  ticketDao.daoList({projectId:$(event.target).closest("tr").attr("data-project-id")}).pipe(function(ticketList){
+				  brite.display("TicketView",$mainview,{ticketList:ticketList});
 			  });
 		  },
 		  "click; .showTicketModal":function(event){
@@ -45,7 +44,7 @@
 		  "click; .editBtn":function(event){
 			  var projectDao = brite.dao("Project");
 			  projectDao.daoGet($(event.target).closest("tr").attr("data-project-id")).pipe(function(project){
-				  brite.display("EditProjectView",$mainview,{project:project});
+				  brite.display("EditProjectView",$("body").find("#projectnav"),{project:project});
 			  });
 		  }
 	  	}

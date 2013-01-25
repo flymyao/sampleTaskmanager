@@ -3,12 +3,28 @@
 	
 }
 
-.ticketView .list{
+.ticketView .ticketTable{
+	float:left;
+	width:100%;
+}
+
+.ticketView .ticketName{
 	float:left;
 	width:70%;
 }
 
-.ticketView .list li{
-	width:100%;
-	color:#666DB8;
+.ticketView .btns{
+	float:right;
+}
+.ticketView .editTicketBtn{
+	margin-right:20px;
+}
+.ticketView .deleteTicketBtn{
+	margin-right:20px;
+}
+
+.ticketView .ticketContent{
+	color:#5495B9;
+	float:left;
+	width:70%;
 }

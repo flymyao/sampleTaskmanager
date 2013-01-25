@@ -18,7 +18,7 @@
 					  "id":projectId
 				  }).pipe(function(){
 					  projectDao.daoList().pipe(function(projectList){
-							 brite.display("ProjectView",$("body").find("#mainview"),{projectList:projectList});
+							 brite.display("ProjectView",$("body").find("#projectnav"),{projectList:projectList});
 						 });
 						  modal.$el.remove();
 				    });
