@@ -1,5 +1,8 @@
 package com.example.sampletaskmanager.entity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +14,11 @@ public class Ticket extends BaseEntity{
 	private String name;
 	private Long projectId;
 	private String content;
+	private String date ;
 	
+	public Ticket(){
+		this.setDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -39,4 +46,11 @@ public class Ticket extends BaseEntity{
 	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
 	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
 }

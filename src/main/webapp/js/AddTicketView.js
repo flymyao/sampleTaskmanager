@@ -18,7 +18,7 @@
 				  content:$(event.target).prev().val(),
 				  projectId:projectId
 			    }).pipe(function(){
-				  ticketDao.daoList({"projectId":$(event.target).closest("tr").attr("data-project-id")}).pipe(function(ticketList){
+				  ticketDao.daoList({"projectId":projectId}).pipe(function(ticketList){
 					  brite.display("TicketView",$mainview,{ticketList:ticketList});
 				  });
 			    });

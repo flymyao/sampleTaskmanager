@@ -11,6 +11,8 @@
 .ticketView .ticketName{
 	float:left;
 	width:70%;
+	font-size:17px;
+	
 }
 
 .ticketView .btns{
@@ -26,5 +28,12 @@
 .ticketView .ticketContent{
 	color:#5495B9;
 	float:left;
+	width:70%;
+}
+
+.ticketView .ticketDate{
+	color:#6C5A86;
+	float:left;
+	margin-left:20px;
 	width:70%;
 }

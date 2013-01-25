@@ -28,10 +28,16 @@
 			 var $mainview = $("body").find("#mainview");
 			 var $navview  = $("body").find("#navview");
 		 	 var projectDao = brite.dao("Project");
+		 	 var ticketDao = brite.dao("Ticket");
 		 	 $(document).ready(function(){
 		 	   brite.display("NavView",$navview);
 				 projectDao.daoList().pipe(function(projectList){
 					 brite.display("ProjectView",$("body").find("#projectnav"),{projectList:projectList});
+					 if(projectList[0]){
+					   ticketDao.daoList({"projectId":projectList[0].id}).pipe(function(ticketList){
+										  brite.display("TicketView",$mainview,{ticketList:ticketList});
+						 });
+					 }
 				 });
 			 });
   	 </script>

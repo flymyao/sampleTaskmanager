@@ -10,8 +10,8 @@
 				var userDao = brite.dao("User");
 				userDao.signOut().pipe(function(status){
 					brite.display("LoginView",$mainview);
-					var $navview  = $("body").find("#navview");
-					brite.destroy($navview);
+					$("#projectnav").empty();
+					$("#navview").empty();
 				});
 			}
 		}

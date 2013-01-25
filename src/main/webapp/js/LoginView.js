@@ -14,8 +14,16 @@
 								 var $navview  = $("body").find("#navview");
 								 brite.display("NavView",$navview);
 								 var projectDao = brite.dao("Project");
+								 var ticketDao = brite.dao("Ticket");
 								 projectDao.daoList().pipe(function(projectList){
-									 brite.display("ProjectView",$("body").find("#mainview"),{projectList:projectList});
+									 brite.display("ProjectView",$("body").find("#projectnav"),{projectList:projectList});
+									 if(projectList[0]){
+									    ticketDao.daoList({"projectId":projectList[0].id}).pipe(function(ticketList){
+										  brite.display("TicketView",$mainview,{ticketList:ticketList});
+										});
+									 }else{
+										 $("#mainview").empty();
+									 }
 								 });
 								}
 							 else{
@@ -36,8 +44,16 @@
 								 var $navview  = $("body").find("#navview");
 								 brite.display("NavView",$navview);
 								 var projectDao = brite.dao("Project");
+								 var ticketDao = brite.dao("Ticket");
 								 projectDao.daoList().pipe(function(projectList){
-									 brite.display("ProjectView",$("body").find("#mainview"),{projectList:projectList});
+									 brite.display("ProjectView",$("body").find("#projectnav"),{projectList:projectList});
+									 if(projectList[0]){
+										 ticketDao.daoList({"projectId":projectList[0].id}).pipe(function(ticketList){
+											  brite.display("TicketView",$mainview,{ticketList:ticketList});
+										 });
+								    }else{
+										 $("#mainview").empty();
+									}
 								 });
 							 }
 							 else
