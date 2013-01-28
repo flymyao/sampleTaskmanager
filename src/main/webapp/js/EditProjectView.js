@@ -1,6 +1,4 @@
 (function(){
-	brite.viewDefaultConfig.loadTmpl = true;
-	
 	brite.registerView("EditProjectView",{emptyParent:false},{
 		create:function(data,config){
 			return render("tmpl-EditProjectView",{project:data.project});

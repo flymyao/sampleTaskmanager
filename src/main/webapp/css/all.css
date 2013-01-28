@@ -1,0 +1,152 @@
+.addTicketView {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.4;
+  z-index: 10;
+}
+.addTicketContent {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  margin-left: -250px;
+  width: 500px;
+  background: white;
+  color: black;
+  z-index: 30;
+  opacity: 1;
+  height: 200px;
+  border-radius: 10px;
+}
+.ticketTextFiled {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.editProjectView {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.4;
+  z-index: 10;
+}
+.modalContent {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  margin-left: -250px;
+  width: 500px;
+  background: white;
+  color: black;
+  z-index: 30;
+  opacity: 1;
+  height: 100px;
+  border-radius: 10px;
+}
+.projectTextFiled {
+  margin-left: 5px;
+  width: 75%;
+  margin-right: 20px;
+}
+
+.LoginView {
+  float: left;
+  width: 400px;
+  margin-top: 100px;
+}
+
+.navview .appname {
+  float: left;
+  margin-top: 5px;
+  font: bold 22px arial;
+  color: #5CADD3;
+  width: 200px;
+}
+.navview .signout {
+  float: right;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.projectView {
+  width: 250px;
+  position: absolute;
+  height: 80%;
+  margin: 0 auto;
+  /* box-shadow:10px 10px 30px black;
+	border-radius:20px; */
+
+  background-color: white;
+}
+.projectView .header {
+  text-align: center;
+}
+.projectView .projectTable td {
+  text-align: left;
+}
+.projectView .ticketBtn {
+  float: right;
+}
+.projectView .projectName {
+  float: left;
+  width: 70%;
+  color: #74B6EB;
+  font-size: 18px;
+  cursor: pointer;
+}
+.projectView .projectView .btns {
+  float: right;
+}
+.projectView .showTicketModal {
+  float: left;
+  margin-right: 10px;
+}
+.projectView .editBtn {
+  float: left;
+  margin-right: 10px;
+}
+.projectView .addProject {
+  width: 55%;
+  margin-top: 10px;
+  margin-right: 0px;
+}
+.projectView .addTicketModal {
+  height: 100px;
+}
+
+.ticketView .ticketTable {
+  float: left;
+  width: 100%;
+}
+.ticketView .ticketName {
+  float: left;
+  width: 70%;
+  font-size: 17px;
+}
+.ticketView .btns {
+  float: right;
+}
+.ticketView .editTicketBtn {
+  margin-right: 20px;
+}
+.ticketView .deleteTicketBtn {
+  margin-right: 20px;
+}
+.ticketView .ticketContent {
+  color: #5495B9;
+  float: left;
+  width: 70%;
+}
+.ticketView .ticketDate {
+  color: #6C5A86;
+  float: left;
+  margin-left: 20px;
+  width: 70%;
+}
+

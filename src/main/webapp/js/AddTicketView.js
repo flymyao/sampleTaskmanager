@@ -1,6 +1,4 @@
 (function(){
-	brite.viewDefaultConfig.loadTmpl = true;
-	
 	brite.registerView("AddTicketView",{emptyParent:false},{
 		create:function(data,config){
 			return render("tmpl-AddTicketView",{project:data.project});
